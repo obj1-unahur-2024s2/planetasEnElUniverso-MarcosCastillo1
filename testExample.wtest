@@ -1,9 +1,47 @@
-import example.pepita
+import example.*
 
-describe "group of tests for pepita" {
 
-  test "pepita has initial energy" {
-    assert.equals(100, pepita.energy())
+
+describe "primera parte de planetas en el universo" {
+  const p1 = new Persona(edad =20)
+const p2 = new Persona(edad =28)
+const p3 = new Persona(edad =30)
+const p4 = new Persona(edad =70)
+
+const m1 = new Muralla(longitud = 1)
+const m2 = new Muralla( longitud =10)
+const museo = new Museo(superficieCubierta = 10, indiceDeImportancia  = 1)
+const marte = new Planetas()
+const luna = new Planetas()
+method initialize(){
+  marte.agregarPersonas(p1)
+  marte.agregarPersonas(p2)
+  marte.agregarPersonas(p3)
+  marte.agregarPersonas(p4)
+
+  marte.agregarConstruccion(m1)
+  marte.agregarConstruccion(m2)
+  marte.agregarConstruccion(museo)
+
+  luna.agregarPersonas(p1)
+  luna.agregarPersonas(p2)
+
+  luna.agregarConstruccion(museo)
+}
+  test "la delegación diplomática está formada por tres personas" {
+   
+    assert.equals(3, marte.delegacionDiplomatica().size())
+    
   }
 
+  test "es valioso" {
+    
+    assert.that(marte.esValioso())
+  }
+
+  test "agregar otro planeta, con habitantes y construcciones, pero que no sea valioso." {
+    
+     assert.notThat(luna.esValioso())
+
+  }
 }
